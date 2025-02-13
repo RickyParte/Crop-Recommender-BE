@@ -1,52 +1,56 @@
-
 <body>
     <section class="container">
-        <!-- <img class="center" src="assets/Crop.svg" width="500" height="100" alt="Crop Recommendator"> -->
         <header>Crop Recommender</header>
         
         <div class="result" *ngIf="result">
             <p>You should grow <b>{{result}}</b></p>
         </div>
 
-        <form (ngSubmit)="onSubmit()" #cropForm="ngForm" class="form">
-            <div class="input-box">
-                <label>Available Soil Nitrogen (kg/ha)</label><br>
-                <input type="text" name="Nitrogen" ngModel placeholder="Enter Nitrogen content" required>
-            </div>
-            
-            <div class="input-box">
-                <label>Available Soil Phosphorus (kg/ha)</label><br>
-                <input type="text" name="Phosphorus" ngModel placeholder="Enter Phosphorus content" required>
-            </div>
-
-            <div class="input-box">
-                <label>Available Soil Potassium (kg/ha)</label>
-                <input type="text" name="Potassium" ngModel placeholder="Enter Potassium content" required>
+        <form #cropForm="ngForm" (ngSubmit)="onSubmit(cropForm)"  class="form">
+            <div class="input-row">
+                <div class="input-box">
+                    <label><i class="fas fa-leaf"></i> Available Soil Nitrogen (kg/ha)</label>
+                    <input type="text" name="Nitrogen" ngModel placeholder="Enter Nitrogen content" required>
+                </div>
+                
+                <div class="input-box">
+                    <label><i class="fas fa-leaf"></i> Available Soil Phosphorus (kg/ha)</label>
+                    <input type="text" name="Phosphorus" ngModel placeholder="Enter Phosphorus content" required>
+                </div>
             </div>
 
-            <div class="input-box">    
-                <label>Temperature (°C)</label>
-                <input type="text" name="Temperature" ngModel placeholder="Enter Temperature value" required>
+            <div class="input-row">
+                <div class="input-box">
+                    <label><i class="fas fa-leaf"></i> Available Soil Potassium (kg/ha)</label>
+                    <input type="text" name="Potassium" ngModel placeholder="Enter Potassium content" required>
+                </div>
+
+                <div class="input-box">
+                    <label><i class="fas fa-thermometer-half"></i> Temperature (°C)</label>
+                    <input type="text" name="Temperature" ngModel placeholder="Enter Temperature value" required>
+                </div>
             </div>
 
-            <div class="input-box">    
-                <label>Humidity (%)</label>
-                <input type="text" name="Humidity" ngModel placeholder="Enter Humidity value" required>
+            <div class="input-row">
+                <div class="input-box">
+                    <label><i class="fas fa-tint"></i> Humidity (%)</label>
+                    <input type="text" name="Humidity" ngModel placeholder="Enter Humidity value" required>
+                </div>
+
+                <div class="input-box">
+                    <label><i class="fas fa-seedling"></i> Soil pH</label>
+                    <input type="text" name="pH" ngModel placeholder="Enter pH value" required>
+                </div>
             </div>
 
-            <div class="input-box">   
-                <label>Soil pH</label>
-                <input type="text" name="pH" ngModel placeholder="Enter pH value" required>
-            </div>
-
-            <div class="input-box">   
-                <label>Average Rainfall (mm)</label>
-                <input type="text" name="Rainfall" ngModel placeholder="Enter Rainfall" required>
+            <div class="input-row">
+                <div class="input-box">
+                    <label><i class="fas fa-cloud-rain"></i> Average Rainfall (mm)</label>
+                    <input type="text" name="Rainfall" ngModel placeholder="Enter Rainfall" required>
+                </div>
             </div>
                 
             <button type="submit" class="button" [disabled]="!cropForm.valid">Predict</button>
-
         </form>
     </section>
 </body>
-

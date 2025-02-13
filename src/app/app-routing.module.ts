@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CropComponent } from './crop/crop.component';
+import { AppComponent } from './app.component';
+import { LandingComponent } from './landing/landing.component';
 
 const routes: Routes = [
-  {
-    path: "crop",
-    component: CropComponent,
-  }
+  { path: '', component: LandingComponent},
+  { path: 'predict', component: CropComponent  },
+  { path: 'login', component: AppComponent},
 ];
 
 @NgModule({
